@@ -82,5 +82,5 @@ void ATEArrow::MossEvent(FHitResult Hit)
 
 void ATEArrow::RopeEvent(FHitResult Hit)
 {
-	GetWorld()->SpawnActor<ATERope>(RopeClass,Hit.Location,FRotator(0));
+	GetWorld()->SpawnActor<ATERope>(RopeClass,FVector(Hit.Location.X, Hit.Location.Y, Hit.Location.Z-15.f),FRotator(0));
 }

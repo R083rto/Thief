@@ -7,6 +7,7 @@
 
 ATEAIController::ATEAIController()
 {
+	/*
 	AIPerception = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerception"));
 	Sight = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("Sight Sense"));
 	if (Sight)
@@ -21,6 +22,7 @@ ATEAIController::ATEAIController()
 	
 		AIPerception->ConfigureSense(*Sight);
 	}
+	*/
 }
 
 

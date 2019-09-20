@@ -25,8 +25,5 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Perception")
 	class UAISenseConfig_Sight* Sight = nullptr;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Perception")
-	class UAISenseConfig_Hearing* Hearing = nullptr;
-
 	virtual void BeginPlay() override;
 };

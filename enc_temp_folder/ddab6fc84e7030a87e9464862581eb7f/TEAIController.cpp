@@ -5,7 +5,6 @@
 #include "Perception/AISense_Sight.h"
 #include "Perception/AISightTargetInterface.h"
 #include "Perception/AISenseConfig_Sight.h"
-#include "Perception/AISenseConfig_Hearing.h"
 
 
 ATEAIController::ATEAIController()
@@ -24,12 +23,6 @@ ATEAIController::ATEAIController()
 		Sight->DetectionByAffiliation.bDetectFriendlies = true;
 		
 		AIPerception->ConfigureSense(*Sight);
-	}
-	Hearing = CreateDefaultSubobject<UAISenseConfig_Hearing>(TEXT("Sight Sense"));
-	if (Hearing)
-	{
-
-		AIPerception->ConfigureSense(*Hearing);
 	}
 	
 }

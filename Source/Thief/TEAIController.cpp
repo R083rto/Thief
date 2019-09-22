@@ -25,7 +25,8 @@ ATEAIController::ATEAIController()
 		
 		AIPerception->ConfigureSense(*Sight);
 	}
-	Hearing = CreateDefaultSubobject<UAISenseConfig_Hearing>(TEXT("Sight Sense"));
+
+	Hearing = CreateDefaultSubobject<UAISenseConfig_Hearing>(TEXT("Hearing Sense"));
 	if (Hearing)
 	{
 

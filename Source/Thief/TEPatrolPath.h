@@ -18,4 +18,7 @@ public:
 	UPROPERTY(EditInstanceOnly, Meta = (MakeEditWidget = true))
 	TArray<FVector> PatrolPath;
 
+	UPROPERTY(EditInstanceOnly)
+	bool IsLooping = false;
+
 };

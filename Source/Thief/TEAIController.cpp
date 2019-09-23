@@ -35,8 +35,6 @@ ATEAIController::ATEAIController()
 	
 }
 
-
-
 void ATEAIController::BeginPlay()
 {
 	Super::BeginPlay();

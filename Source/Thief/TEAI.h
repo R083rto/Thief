@@ -17,7 +17,10 @@ public:
 	ATEAI();
 
 	UPROPERTY(EditInstanceOnly, Meta = (MakeEditWidget = true))
-	TSubclassOf<class ATEPatrolPath> PatrolPath;
+	class ATEPatrolPath* PatrolPath;
+
+	UPROPERTY(EditAnywhere)
+	float WaitTime = 1.f;
 
 protected:
 	// Called when the game starts or when spawned

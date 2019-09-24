@@ -16,7 +16,10 @@ public:
 	ATEPatrolPath();
 
 	UPROPERTY(EditInstanceOnly, Meta = (MakeEditWidget = true))
-	TArray<FVector> PatrolPath;
+	TArray<FVector> PatrolPoints;
+
+	FVector GetPatrolPoint(int index) { return PatrolPoints[index]; }
+
 
 	UPROPERTY(EditInstanceOnly)
 	bool IsLooping = false;

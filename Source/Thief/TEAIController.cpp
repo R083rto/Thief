@@ -6,6 +6,10 @@
 #include "Perception/AISightTargetInterface.h"
 #include "Perception/AISenseConfig_Sight.h"
 #include "Perception/AISenseConfig_Hearing.h"
+#include <BehaviorTree/BlackboardComponent.h>
+#include "TEAI.h"
+#include "TEPatrolPath.h"
+#include <AIController.h>
 
 
 ATEAIController::ATEAIController()
@@ -39,8 +43,17 @@ void ATEAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if(Behaviour)
+	if (Behaviour)
+	{
 		RunBehaviorTree(Behaviour);
+		AIContolledPawn = Cast<ATEAI>(GetPawn());
+		ATEPatrolPath* Path = Cast<ATEPatrolPath>(AIContolledPawn->PatrolPath);
+		UBlackboardComponent* MyBlackBoard = GetBlackboardComponent();
+		MyBlackBoard->SetValueAsBool(LoopName, Path->IsLooping);
+		MyBlackBoard->SetValueAsInt(DirectionName, 1);
+		MyBlackBoard->SetValueAsFloat(WaitTimeName, AIContolledPawn->WaitTime);
+
+	}
 	else
 		UE_LOG(LogTemp, Error, TEXT("NO BEHAVIOUR TREE HAS BEEN ASIGNED TO THE AI CONTROLLER"));
 }

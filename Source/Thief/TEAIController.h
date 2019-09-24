@@ -16,9 +16,6 @@ public:
 
 	ATEAIController();
 
-	UPROPERTY(EditAnywhere)
-	UBehaviorTree* Behaviour;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Perception")
 	class UAIPerceptionComponent* AIPerception = nullptr;
 
@@ -27,6 +24,20 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Perception")
 	class UAISenseConfig_Hearing* Hearing = nullptr;
+
+	UPROPERTY(EditDefaultsOnly, Category = Behaviour)
+	UBehaviorTree* Behaviour;
+
+	UPROPERTY(EditDefaultsOnly, Category = Behaviour)
+	FName LoopName = "Loop";
+
+	UPROPERTY(EditDefaultsOnly, Category = Behaviour)
+	FName DirectionName = "Direction";
+
+	UPROPERTY(EditDefaultsOnly, Category = Behaviour)
+	FName WaitTimeName = "WaitTime";
+
+	class ATEAI* AIContolledPawn;
 
 	virtual void BeginPlay() override;
 };

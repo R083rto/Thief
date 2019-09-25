@@ -16,6 +16,9 @@ public:
 	// Sets default values for this character's properties
 	ATEAI();
 
+	UPROPERTY(EditAnywhere, Category = Behavior)
+	class UBehaviorTree* BotBehavior;
+
 	UPROPERTY(EditInstanceOnly, Meta = (MakeEditWidget = true))
 	class ATEPatrolPath* PatrolPath;
 

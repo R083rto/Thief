@@ -28,10 +28,11 @@ EBTNodeResult::Type UTEDecrementPathIndex::ExecuteTask(UBehaviorTreeComponent& O
 				ATEPatrolPath* PatrolPath = Cast<ATEPatrolPath>(MyPawn->PatrolPath);
 
 				//check if at end off the path so i know if i can continue or turn back
-				if (PathIndex + 1 >= 0)
+				if (PathIndex - 1 >= 0)
 				{
 					MyBlackBoard->SetValueAsInt(BB_Direction.SelectedKeyName, -1);
 					MyBlackBoard->SetValueAsInt(BB_PathIndex.SelectedKeyName, PathIndex - 1);
+					UE_LOG(LogTemp, Warning, TEXT("Path point Decremented!"));
 					return EBTNodeResult::Succeeded;
 				}
 				else

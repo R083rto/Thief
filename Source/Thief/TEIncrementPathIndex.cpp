@@ -33,10 +33,11 @@ EBTNodeResult::Type UTEIncrementPathIndex::ExecuteTask(UBehaviorTreeComponent& O
 				ATEPatrolPath* PatrolPath = Cast<ATEPatrolPath>(MyPawn->PatrolPath);
 
 				//check if at end off the path so i know if i can continue or turn back
-				if (PathIndex + 1 <= PatrolPath->PatrolPoints.Num() - 1)
+				if ((PathIndex + 1) <= (PatrolPath->PatrolPoints.Num() - 1))
 				{
 					MyBlackBoard->SetValueAsInt(BB_Direction.SelectedKeyName, 1);
 					MyBlackBoard->SetValueAsInt(BB_PathIndex.SelectedKeyName, PathIndex + 1);
+					UE_LOG(LogTemp, Warning, TEXT("increment path point index"));
 					return EBTNodeResult::Succeeded;
 				}
 				else

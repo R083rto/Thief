@@ -25,9 +25,10 @@ EBTNodeResult::Type UTEFindPathPoint::ExecuteTask(UBehaviorTreeComponent& OwnerC
 			UBlackboardComponent* MyBlackBoard = OwnerComp.GetBlackboardComponent();
 			int PathIndex = MyBlackBoard->GetValueAsInt(BB_PathIndex.SelectedKeyName);
 			ATEPatrolPath* PatrolPath = Cast<ATEPatrolPath>(MyPawn->PatrolPath);
-			FVector NewLocation = PatrolPath->GetActorLocation() * PatrolPath->GetPatrolPoint(PathIndex);
+			FVector NewLocation = PatrolPath->GetActorLocation() + PatrolPath->GetPatrolPoint(PathIndex);
 			MyBlackBoard->SetValueAsVector(BB_PathVector.SelectedKeyName,NewLocation);
 
+			UE_LOG(LogTemp, Warning, TEXT("Path point found!"));
 			return EBTNodeResult::Succeeded;
 		}
 		else

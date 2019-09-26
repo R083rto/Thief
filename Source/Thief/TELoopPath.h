@@ -18,4 +18,8 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Blackboard)
 	struct FBlackboardKeySelector BB_PathIndex;
+
+	UPROPERTY(EditAnywhere, Category = Blackboard)
+	struct FBlackboardKeySelector BB_Direction;
 };
+

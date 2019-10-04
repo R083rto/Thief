@@ -14,11 +14,14 @@
 #include "TEAI.h"
 #include "TEPatrolPath.h"
 #include <AIController.h>
+#include <GameFramework/Actor.h>
+#include "TECharacter.h"
 
 
 
 ATEAIController::ATEAIController()
 {
+	//initializing behavior stuff
 	BlackboardComp = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackBoardComp"));
 	BehaviourComp = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComp"));
 
@@ -47,6 +50,19 @@ ATEAIController::ATEAIController()
 	
 }
 
+void ATEAIController::ActorsPerceptionUpdated(const TArray<AActor*>& UpdatedActors)
+{
+	// updating perception of players
+	for(AActor* actor : UpdatedActors)
+	{
+		ATECharacter* player = actor ? Cast<ATECharacter>(actor) : NULL;
+		if (player)
+		{
+			BlackboardComp->SetValueAsObject(PlayerName, player);
+		}
+	}
+}
+
 void ATEAIController::Possess(APawn* PossessedPawn)
 {
 	Super::Possess(PossessedPawn);
@@ -71,20 +87,4 @@ void ATEAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
-	//if (Behaviour)
-	//{
-	//	//Behaviour->StartTree();
-	//	AAIController::RunBehaviorTree(Behaviour);
-	//	AIContolledPawn = Cast<ATEAI>(GetPawn());
-	//	ATEPatrolPath* Path = Cast<ATEPatrolPath>(AIContolledPawn->PatrolPath);
-	//	UBlackboardComponent* MyBlackBoard = GetBlackboardComponent();
-	//	MyBlackBoard->SetValueAsBool(LoopName, Path->IsLooping);
-	//	MyBlackBoard->SetValueAsInt(DirectionName, 1);
-	//	MyBlackBoard->SetValueAsFloat(WaitTimeName, AIContolledPawn->WaitTime);
-	//
-	//}
-	//else
-	//	UE_LOG(LogTemp, Error, TEXT("NO BEHAVIOUR TREE HAS BEEN ASIGNED TO THE AI CONTROLLER"));
-	
 }

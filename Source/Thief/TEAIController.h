@@ -43,6 +43,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Behaviour)
 	FName WaitTimeName = "WaitTime";
 
+	UPROPERTY(EditDefaultsOnly, Category = Behaviour)
+	FName PlayerName = "PlayerTarget";
+
+	virtual void ActorsPerceptionUpdated(const TArray<AActor*>& UpdatedActors) override;
 
 	virtual void Possess(APawn* PossessedPawn) override;
 

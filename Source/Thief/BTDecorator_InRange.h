@@ -15,7 +15,7 @@ class THIEF_API UBTDecorator_InRange : public UBTDecorator
 	GENERATED_BODY()
 	
 public:
-	virtual bool CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const override;
+	//virtual bool CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const override;
 
 	UPROPERTY(EditAnywhere, Category = Blackboard)
 	struct FBlackboardKeySelector BB_Target;

@@ -2,7 +2,7 @@
 
 #include "BTDecorator_InRange.h"
 
-bool UBTDecorator_InRange::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const
-{
-
-}
+//bool UBTDecorator_InRange::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const
+//{
+//
+//}
